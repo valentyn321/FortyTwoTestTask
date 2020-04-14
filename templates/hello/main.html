@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% load staticfiles %}
+
+{% block title %}Contacts{% endblock title %}
+
+{% block extra_head %}
+<link rel="stylesheet" href="{% static 'css/hello/contacts.css' %}" media="screen, projection"/>
+{% endblock extra_head %}
+
+{% block content %}
+<div class="parent mt-2 ml-3">
+    <div id="left">
+        <p class="font-weight-bold">Info
+            <hr>
+        </p>
+        <p>Name: Valentyn</p>
+        <p>Last Name: Cherkasov</p>
+        <p>Birth: 03.02.2001</p>
+        <p>Bio: I am a student of Lviv Polytechnic National University. In my junior year, I have started to learn C/C++.  With time, I understood, that I new something new, without ;  in the end of the line :)</p>
+    </div>
+    <div id="right">
+        <p class="font-weight-bold">Contacts
+            <hr>
+        </p>
+        <p>Email: vcherkasov321@gmai.com</p>
+        <p>Jabber: valentyn17@42cc.co</p>
+        <p>Skype: tawervalik15</p>
+        <p>Other contacts: +380986418462</p>
+    </div>
+</div>
+
+{% endblock content %}

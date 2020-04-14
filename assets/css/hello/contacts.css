@@ -1,0 +1,9 @@
+.parent>div {
+    float: left;
+    width: 33%;
+    margin-right: 2%;
+}
+
+.parent>div:last-child {
+    margin-right: 0;
+}
