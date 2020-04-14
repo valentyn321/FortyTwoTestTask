@@ -14,19 +14,19 @@
         <p class="font-weight-bold">Info
             <hr>
         </p>
-        <p>Name: Valentyn</p>
-        <p>Last Name: Cherkasov</p>
-        <p>Birth: 03.02.2001</p>
-        <p>Bio: I am a student of Lviv Polytechnic National University. In my junior year, I have started to learn C/C++.  With time, I understood, that I new something new, without ;  in the end of the line :)</p>
+        <p>Name: {{ object.name }}</p>
+        <p>Last Name: {{object.last_name}}</p>
+        <p>Birth: {{object.date_of_birth}}</p>
+        <p>Bio: {{object.bio}}</p>
     </div>
     <div id="right">
         <p class="font-weight-bold">Contacts
             <hr>
         </p>
-        <p>Email: vcherkasov321@gmail.com</p>
-        <p>Jabber: valentyn17@42cc.co</p>
-        <p>Skype: tawervalik15</p>
-        <p>Other contacts: +380986418462</p>
+        <p>Email: {{ object.email }}</p>
+        <p>Jabber: {{object.jabber }}</p>
+        <p>Skype: {{ object.skype }}</p>
+        <p>Other contacts: {{ object.other }}</p>
     </div>
 </div>
 

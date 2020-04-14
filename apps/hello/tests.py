@@ -10,15 +10,20 @@ class SomeTests(TestCase):
 
 
 class TestViews(TestCase):
+    """Creats a new user for check, after that, compare with response"""
+    def setUp(self):
+        """creats"""
+        self.dev1 = Developer.objects.get(id=1)
+
     def test_contacts_view(self):
         """compare"""
         client = Client()
         response = client.get(reverse('main'))
-        self.assertTemplateUsed(response, 'hello/main.html')
-        self.assertContains(response, "Valentyn")
-        self.assertContains(response, "Cherkasov")
-        self.assertContains(response, "vcherkasov321@gmail.com")
-        self.assertContains(response, "valentyn17@42cc.co")
+        self.assertTemplateUsed(response, 'hello/developer_detail.html')
+        self.assertContains(response, self.dev1.name)
+        self.assertContains(response, self.dev1.last_name)
+        self.assertContains(response, self.dev1.email)
+        self.assertContains(response, self.dev1.jabber)
 
 
 class TestModels(TestCase):

@@ -1,19 +1,9 @@
-from django.shortcuts import render
+from apps.hello.models import Developer
+from django.views.generic import DetailView
 
 
-def return_developer(request):
-    context = {
-        'name': 'Valentyn',
-        'last_name': 'Cherkasov',
-        'birth': '03.02.2001',
-        'bio': 'I am a student of Lviv Polytechnic National University. '
-        'In my junior year, I have started to learn C/C++.  With time, '
-        'I understood, that I new something new, without '
-        ';  in the end of the line :)',
-        'email': 'vcherkasov321@gmail.com',
-        'jabber': 'valentyn17@42cc.co',
-        'skype': 'tawervalik15',
-        'other': '+380986418462'
-    }
+class ContactsDetailView(DetailView):
+    model = Developer
 
-    return render(request, "hello/main.html", context)
+    def get_object(self):
+        return Developer.objects.get(pk=1)

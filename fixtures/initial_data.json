@@ -1,0 +1,36 @@
+[
+{
+    "pk": 1, 
+    "model": "hello.developer", 
+    "fields": {
+        "bio": "I am a student of Lviv Polytechnic National University. In my junior year, I have started to learn C/C++.  With time, I understood, that I new something new, without ;  in the end of the line:)", 
+        "last_name": "Cherkasov", 
+        "name": "Valentyn", 
+        "other": "+380986418462", 
+        "date_of_birth": "2001-02-03", 
+        "skype": "tawervalik15", 
+        "jabber": "valentyn17@42cc.co", 
+        "email": "vcherkasov321@gmail.com"
+    }
+},
+
+{
+    "pk": 1, 
+    "model": "auth.user", 
+    "fields": {
+        "username": "admin", 
+        "first_name": "", 
+        "last_name": "", 
+        "is_active": true, 
+        "is_superuser": true, 
+        "is_staff": true, 
+        "last_login": "2020-04-14T11:40:11.273Z", 
+        "groups": [], 
+        "user_permissions": [], 
+        "password": "pbkdf2_sha256$12000$4INAUtXRY9zn$cej6yMMAxykB+JXadROco88Afb6zhlbdagurTUEOxyY=", 
+        "email": "admin@admin.admin", 
+        "date_joined": "2020-04-14T11:40:00.367Z"
+    }
+}
+
+]
