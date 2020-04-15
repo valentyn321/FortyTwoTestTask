@@ -1,5 +1,7 @@
 from django.conf.urls import patterns, include, url
+
 from apps.hello import views as hello_views
+from apps.requests import views as requests_views
 
 from django.contrib import admin
 admin.autodiscover()
@@ -11,5 +13,7 @@ urlpatterns = patterns(
     # url(r'^blog/', include('blog.urls')),
 
     url(r'^admin/', include(admin.site.urls)),
-    url(r'', hello_views.ContactsDetailView.as_view(), name="main"),
+    url(r'^$', hello_views.ContactsDetailView.as_view(), name="main"),
+    url(r'^requests$', requests_views.RequestsListView.as_view(),
+        name="requests"),
 )
