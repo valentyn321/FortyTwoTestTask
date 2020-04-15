@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% load staticfiles %}
+
+{% block title %}Requests{% endblock title %}
+
+{% block extra_head %}
+<link rel="stylesheet" href="{% static 'css/requests/requests.css' %}" media="screen, projection"/>
+{% endblock extra_head %}
+
+{% block content %}
+
+<div class="mt-2 ml-3 mr-3">
+    <p class="font-weight-bold">Requests</p>
+    <hr>
+</div>
+ <!--Table starts-->
+ <div class="requests_table mt-2 ml-3" id="req_tab">
+     <table class="table table-striped" id="requests_tab">
+         <thead>
+            <tr>
+                <th>ID</th>
+                <th>Server</th>
+                <th>Path</th>
+                <th>Method</th>
+                <th>Time</th>
+                <th>Body</th>
+            </tr>
+         </thead>
+         <tbody>
+            {% for object in object_list %}         
+            <tr id="{{ object.id }}"  {% if object.read == True %} class="table-light table_rows" {% else %} class="table-dark table_rows" {%endif%}>
+                <td>{{ object.id }}</td>
+                <td>{{ object.server_name }}</td>
+                <td>{{ object.request_path }}</td>
+                <td>{{ object.request_method }}</td>                
+                <td>{{ object.time_of_request|date:'H:i:s' }}</td>
+                <td>{{ object.request_body }}<td>
+            </tr>
+            {% endfor %}                    
+         </tbody>
+     </table>
+</div>
+
+{% endblock content %}

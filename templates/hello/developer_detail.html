@@ -14,20 +14,25 @@
         <p class="font-weight-bold">Info
             <hr>
         </p>
-        <p>Name: {{ object.name }}</p>
-        <p>Last Name: {{object.last_name}}</p>
-        <p>Birth: {{object.date_of_birth}}</p>
-        <p>Bio: {{object.bio}}</p>
+        <p>Name: {{ developer.name }}</p>
+        <p>Last Name: {{developer.last_name}} </p>
+        <p>Birth: {{ developer.date_of_birth }} </p>
+        <p>Bio: {{ developer.bio }} </p>
     </div>
     <div id="right">
         <p class="font-weight-bold">Contacts
             <hr>
         </p>
-        <p>Email: {{ object.email }}</p>
-        <p>Jabber: {{object.jabber }}</p>
-        <p>Skype: {{ object.skype }}</p>
-        <p>Other contacts: {{ object.other }}</p>
+        <p>Email: {{ developer.email }}</p>
+        <p>Jabber: {{ developer.jabber }}</p>
+        <p>Skype: {{ developer.skype }}</p>
+        <p>Other contacts: {{ developer.other }}</p>
     </div>
+</div>
+
+<div class="requests_div mt-2 ml-3">
+    <p class="font-weight-bold">Requests</p>
+    <hr>
 </div>
 
 {% endblock content %}

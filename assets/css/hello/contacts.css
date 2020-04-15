@@ -7,3 +7,15 @@
 .parent>div:last-child {
     margin-right: 0;
 }
+
+.requests_div  {
+    float: left;
+    width: 100%;
+    margin-right: 2%;
+}
+
+.requests_table  {
+    float: left;
+    width: 98%;
+    margin-right: 2%;
+}
