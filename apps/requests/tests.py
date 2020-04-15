@@ -1,5 +1,6 @@
-from django.test import TestCase
+from django.test import TestCase, Client
 from apps.requests.models import Http_Request
+from django.core.urlresolvers import reverse
 from django.core.exceptions import ValidationError
 from apps.requests.middleware import StoreRequestMiddleware
 from mock import Mock
@@ -56,3 +57,27 @@ class StoreRequestMiddlewareTests(TestCase):
         self.assertIsNone(response)
         count = Http_Request.objects.all().count()
         self.assertEqual(count, 1)
+
+
+class TestViews(TestCase):
+    """Create a new request, after that, compare with response"""
+    def setUp(self):
+        """getting"""
+        self.http1 = Http_Request.objects.create(
+            request_method='POST',
+            server_name='localhost',
+            request_body='some_large_body',
+            request_path='/'
+        )
+
+    def test_requests_view(self):
+        """compare"""
+        client = Client()
+        response = client.get(reverse('requests'))
+        self.assertTemplateUsed(response, 'requests/requests.html')
+        self.assertEquals(response.status_code, 200)
+        self.assertContains(response, self.http1.server_name)
+        self.assertContains(response, self.http1.request_method)
+        self.assertContains(response, self.http1.request_path)
+        self.assertContains(response, self.http1.request_body)
+        self.assertContains(response, self.http1.time_of_request)
