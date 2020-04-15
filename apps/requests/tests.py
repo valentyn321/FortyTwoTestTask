@@ -1,6 +1,7 @@
 from django.test import TestCase
 from apps.requests.models import Http_Request
 from django.core.exceptions import ValidationError
+from mock import Mock
 
 
 class TestModels(TestCase):
@@ -34,3 +35,23 @@ class TestModels(TestCase):
                 print("Validation Error! Check fileds of you model!")
                 Http_Request.objects.get(id=obj.id).delete()
         self.assertEquals(Http_Request.objects.count(), 1)
+
+
+class StoreRequestMiddlewareTests(TestCase):
+    def setUp(self):
+        """Here we using Mock"""
+        self.middleware = StoreRequestMiddleware()
+        self.request = Mock()
+        self.request.META = {
+            "SERVER_NAME": 'localhost'
+        }
+        self.request.path = '/testURL/'
+        self.request.body = ''
+        self.request.method = "GET"
+
+    def test_requestProcessing(self):
+        """Comparing"""
+        response = self.middleware.process_request(self.request)
+        self.assertIsNone(response)
+        count = Http_Request.objects.all().count()
+        self.assertEqual(count, 1)
