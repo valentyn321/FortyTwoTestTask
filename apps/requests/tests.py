@@ -1,6 +1,7 @@
 from django.test import TestCase
 from apps.requests.models import Http_Request
 from django.core.exceptions import ValidationError
+from apps.requests.middleware import StoreRequestMiddleware
 from mock import Mock
 
 
